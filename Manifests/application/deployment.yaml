@@ -2,6 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: application
+  service-account.name: clo835
+  service-account.uid: 1095b0ca-4dfd-4ce7-b7e5-9cf0b8d65755
+  rbac.authorization.kubernetes.io/role: clo835-role
+  rbac.authorization.kubernetes.io/rolebinding: clo835-rolebinding
   labels:
     app: employees
     component: frontend
@@ -16,6 +20,7 @@ spec:
         app: employees
         component: frontend
     spec:
+      serviceAccountName: clo835
       containers:
         - name: application-container
           image: 570629616813.dkr.ecr.us-east-1.amazonaws.com/app-image-clo835-final-project:latest
