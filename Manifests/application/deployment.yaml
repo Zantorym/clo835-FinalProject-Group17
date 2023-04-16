@@ -57,5 +57,3 @@ spec:
               cpu: 50m
           ports:
             - containerPort: 81
-      imagePullSecrets:
-        - name: regcred
