@@ -23,7 +23,7 @@ spec:
       serviceAccountName: clo835
       containers:
         - name: application-container
-          image: 844099387134.dkr.ecr.us-east-1.amazonaws.com/app-image-clo835-final-project:latest 
+          image: 570629616813.dkr.ecr.us-east-1.amazonaws.com/app-image-clo835-final-project:latest
           env:
             - name: DBPWD
               valueFrom:
@@ -39,6 +39,11 @@ spec:
               value: "mysql.final.svc.cluster.local"
             - name: DBPORT
               value: "3306"
+            - name: BUCKETNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: app-configmap
+                  key: bucket
             - name: BGIMG
               valueFrom:
                 configMapKeyRef:
@@ -49,6 +54,11 @@ spec:
                 configMapKeyRef:
                   name: app-configmap
                   key: grpname
+          resources:
+            requests:
+              cpu: 15m
+            limits:
+              cpu: 50m
           ports:
             - containerPort: 81
       imagePullSecrets:
