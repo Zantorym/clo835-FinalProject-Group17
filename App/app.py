@@ -29,7 +29,7 @@ db_conn = connections.Connection(
 output = {}
 table = 'employee';
 
-default_bucket = "clo835images17"
+default_bucket = "clo835images17jaspreet"
 default_image = "projectbg.jpg"
 
 @app.route("/download", methods=['GET', 'POST'])
