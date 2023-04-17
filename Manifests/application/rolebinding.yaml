@@ -6,8 +6,9 @@ metadata:
 roleRef:
   kind: Role
   apiGroup: rbac.authorization.k8s.io
-  name: clo835
+  name: clo835-role
 subjects:
   - kind: ServiceAccount
     name: clo835
     namespace: final
+    apiGroup: ""
